@@ -6,20 +6,29 @@
 class Segment {
 
 //Add x and y member variables. They will hold the corner location of each segment of the snake.
-
+int x;
+int y;
 
 // Add a constructor with parameters to initialize each variable.
 
-
-
+public Segment(int xe, int ye){
+  
+  int x = xe;
+  int y = ye;
+  
 }
+}
+
+
 
 
 //*
 // ***** GAME VARIABLES *****
 // All the game variables that will be shared by the game methods are here
 //*
-
+Segment head;
+int foodX;
+int foodY;
 
 
 
@@ -30,12 +39,15 @@ class Segment {
 //*
 
 void setup() {
-
+size(500,500);
+ head = new Segment(100,100);
+frameRate(20);
+dropFood();
 }
 
 void dropFood() {
   //Set the food in a new random location
-    
+    foodX = ((int)random(50)*10);
 }
 
 
@@ -46,16 +58,20 @@ void dropFood() {
 //*
 
 void draw() {
-  
+  background(255,0,255);
+  drawFood();
+  drawSnake();
 }
 
 void drawFood() {
   //Draw the food
-  
+  fill(200,5,5);
+  rect(foodX,foodY,10,10);
 }
 
 void drawSnake() {
   //Draw the head of the snake followed by its tail
+  rect(head.x,head.y,10,10);
 }
 
 
